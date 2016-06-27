@@ -5,7 +5,7 @@
             <input type="hidden" name="fnc" value="togglepublic">
             <input type="hidden" name="cl" value="account_wishlist">
         </div>
-        <fieldset class="form-group">
+        <fieldset class="form-group m-y-2">
             <div class="row">
                 <div class="col-sm-12">
                     <label for="abs-wishlist-status">[{oxmultilang ident="MESSAGE_MAKE_GIFT_REGISTRY_PUBLISH" suffix="COLON"}]</label>

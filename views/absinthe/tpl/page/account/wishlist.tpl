@@ -14,8 +14,6 @@
     [{if $oView->getWishList()}]
         [{include file="form/wishlist_publish.tpl"}]
         [{include file="form/wishlist_suggest.tpl"}]
-    [{/if}]
-    [{if $oView->getWishList()}]
         [{include file="widget/product/list.tpl" type="line" listId="wishlistProductList" title="" products=$oView->getWishProductList() removeFunction="towishlist" toBasketFunction="tobasket" owishid=$oxcmp_user->oxuser__oxid->value}]
     [{else}]
         <div class="alert alert-info" role="alert">

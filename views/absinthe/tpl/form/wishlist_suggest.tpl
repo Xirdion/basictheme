@@ -1,7 +1,7 @@
-<div class="wishlistSuggest clear">
+<div class="wishlistSuggest">
     [{if $oView->getWishList() && $oView->showSuggest()}]
         [{if count($Errors.account_whishlist)>0}]
-            <div class="inlineError">
+            <div class="alert alert-danger" role="alert">
                 [{foreach from=$Errors.account_whishlist item=oEr key=key}]
                     [{$oEr->getOxMessage()}]<br>
                 [{/foreach}]

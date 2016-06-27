@@ -19,6 +19,7 @@ $aLang = array(
     'COUNT'                         => 'Anzahl',
     'FILESIZE'                      => 'Dateigröße',
     'START_DOWNLOAD'                => 'Download starten',
-    'CLOCK'                         => 'Uhr'
+    'CLOCK'                         => 'Uhr',
+    'REMOVE_FROM_WISHLIST'          => 'vom Wunschzettel entfernen'
 
 );

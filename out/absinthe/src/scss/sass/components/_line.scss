@@ -1,12 +1,7 @@
-/*
-    This File is part of Absinthe. Drink responsibly.
-*/
-
-.infogrid {
-
+.line {
     .abs-list-item {
-        position: relative;
-
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         transition: border 0.2s;
         border: 1px solid transparent;
 
@@ -16,16 +11,6 @@
             /*background-color: $abs-background-color;
             transition: transform 0.2s; 
             transform: scale(1.05);*/
-        }
-
-        .abs-listitem-infogrid-details-holder {
-            height: 6rem;
-        }
-
-        .abs-listitem-infogrid-details {
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
         }
     }
 }

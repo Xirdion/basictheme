@@ -22,4 +22,17 @@
     .abs-click-pic{
         cursor: pointer;
     }
+    
+    .abs-card-ul {
+        ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            padding: 0 2rem;
+            
+            li {
+                margin-top: 0.7rem;
+                line-height: 130%;
+            }
+        }
+    }
 }

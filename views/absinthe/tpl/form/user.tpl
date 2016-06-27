@@ -45,7 +45,7 @@
                         </div>
                     [{/block}]
                     [{block name="user_shipping_address_form"}]
-                        <div id="shippingAddress" class="m-t-1 m-b-1" [{if !$oView->showShipAddress()}] style="display: none;" [{/if}]>
+                        <div id="shippingAddress" class="m-t-1 m-b-1" [{if !$oView->showShipAddress()}] style="display: none;"[{/if}]>
                             [{include file="form/fieldset/user_shipping.tpl" noFormSubmit=true}]
                             <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> [{oxmultilang ident="SAVE"}]</button>
                         </div>
