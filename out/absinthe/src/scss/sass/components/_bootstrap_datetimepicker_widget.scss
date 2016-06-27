@@ -1,0 +1,30 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+/* change to abs-datetimepicker or sth. */
+
+.bootstrap-datetimepicker-widget{
+
+    width: 18rem;
+
+    @include media-breakpoint-down(xs){
+        width: 16rem;
+    }
+
+    thead tr{
+        height: 2.5rem;
+    }
+
+    tbody{
+
+        tr{
+            height: 1.8rem;
+            line-height: .5rem;
+        }
+    }
+    
+    table td span.decade{
+        line-height: 26px;
+    }
+}

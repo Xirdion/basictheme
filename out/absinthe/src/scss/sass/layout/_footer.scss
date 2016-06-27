@@ -1,0 +1,62 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-footer{
+
+    background-color: $abs-base-color;
+
+    #abs-footer-newsletter{
+
+        background-color: $abs-assist-color;
+
+        .abs-newsletter-delinfo {
+
+            @include media-breakpoint-up(md) {
+                padding-bottom: 0rem!important;
+                padding-top: 0.5rem;
+            }
+
+            @include media-breakpoint-only(xs) {
+                text-align: center;
+            }
+            
+            a {
+
+                color: $abs-background-color;
+                text-decoration: none;
+
+                &:hover{
+                    color: $abs-base-color;
+                }
+            }    
+        }
+        
+        #abs-newsletter-label{
+            padding-top: 0.6rem;
+        }
+    }
+
+    #abs-footer-links{
+        color: $abs-background-color;
+
+        span{
+            display: inline-block;
+        }
+
+        ul{
+            padding-left: 0px;
+            li{
+                a{
+                    color: inherit;
+                    text-decoration: none;
+
+                    &:hover{
+                        color: $abs-assist-color;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

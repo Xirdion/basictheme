@@ -1,0 +1,15 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+.abs-categorytree{
+    
+    .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+        
+        border-color: $list-group-border-color;
+        
+    }
+    
+    @include list-group-item-variant(abs-current, $abs-assist-color-highlight, $abs-background-color);
+
+}

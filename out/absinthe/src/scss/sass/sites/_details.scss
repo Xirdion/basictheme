@@ -1,0 +1,25 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-page.details{
+
+    /*    
+    
+    moved to own component, is used in list also
+    
+    #abs-to-basket-amount{
+            max-width: 7.5rem;
+        }
+    */
+
+    .abs-zoom-pic{
+        cursor: -webkit-zoom-in;
+        cursor: -moz-zoom-in;
+        cursor: zoom-in;
+    }
+
+    .abs-click-pic{
+        cursor: pointer;
+    }
+}

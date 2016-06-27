@@ -1,0 +1,17 @@
+{
+  "name": "absinthe",
+  "description": "responsive oxid theme",
+  "main": "",
+  "moduleType": [],
+  "license": "WTFPL",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.2",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "jquery-ui": "~1.11.4",
+    "fontawesome": "~4.5.0",
+    "slick-carousel": "~1.5.9",
+    "photoswipe": "~4.1.1"
+  }
+}

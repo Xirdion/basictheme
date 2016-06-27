@@ -1,0 +1,7 @@
+[{capture append="oxidBlock_content"}]
+    [{if $oView->getNewestArticles()}]
+        [{include file="widget/product/list.tpl" type=$oViewConf->getViewThemeParam('sStartPageListDisplayType') head="JUST_ARRIVED"|oxmultilangassign listId="newItems" products=$oView->getNewestArticles() showMainLink=true}]
+    [{/if}]
+    [{include file="widget/manufacturersslider.tpl"}]
+[{/capture}]
+[{include file="layout/page.tpl"}]

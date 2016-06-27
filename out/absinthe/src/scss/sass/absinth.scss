@@ -1,0 +1,67 @@
+/*
+    This File ist part of Absinth. Drink responsibly.
+*/
+
+@import "global/reset";
+@import "global/variables";
+
+@import "overrides/bootstrap";
+@import "../../bower_components/bootstrap/scss/bootstrap";
+
+@import "overrides/fontawesome";
+@import "../../bower_components/fontawesome/scss/font-awesome";
+
+@import "overrides/slick";
+@import "../../bower_components/slick-carousel/slick/slick";
+@import "../../bower_components/slick-carousel/slick/slick-theme";
+
+@import "overrides/datepicker";
+@import "../../bower_components/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker";
+
+@import "overrides/photoswipe";
+@import "../../bower_components/photoswipe/src/css/main";
+@import "../../bower_components/photoswipe/src/css/default-skin/default-skin";
+
+.pswp__ui--fit .pswp__top-bar,
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before{
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+/*
+
+    TODO: rethink components structure. Maybe scope them to sites and include in sites. Maybe don't scope anything on site level.'
+    
+*/
+
+@import "components/tagitem";
+@import "components/infogrid";
+@import "components/steps";
+@import "components/bootstrap_datetimepicker_widget";
+@import "components/form_group";
+@import "components/tab_content";
+@import "components/abs_rating";
+@import "components/abs_to_basket";
+@import "components/abs_categorytree";
+@import "components/abs_listitem_title";
+@import "components/abs_card";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/page";
+
+@import "sites/start";
+@import "sites/basket";
+@import "sites/user";
+@import "sites/payment";
+@import "sites/details";
+
+@import "sites/account";
+@import "sites/account_password";
+@import "sites/account_newsletter";
+@import "sites/account_order";
+@import "sites/account_wishlist";
+@import "sites/account_downloads";
+@import "sites/alist";
+@import "sites/tags";
+@import "sites/guestbook";

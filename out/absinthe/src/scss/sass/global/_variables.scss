@@ -1,0 +1,31 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+/* color definitions */
+
+/* TODO: add some descriptive texts to colors to make it look like picking the different colors happened in a thoughtful process */
+
+$abs-background-color: #fff!default;
+$abs-background-color-highlight: #eee!default;
+
+$abs-base-color: #333!default;
+$abs-base-color-highlight: #555!default;
+
+$abs-assist-color: #3CB371!default;
+$abs-assist-color-highlight: #3BCA7B!default;
+
+$abs-special-color: #7aa500!default;
+$abs-special-color-hightlight: #a0c125!default;
+
+$abs-star-color: $abs-base-color!default;
+$abs-star-selected-color: #FFD700!default;
+$abs-star-color-highlight: #FFED85!default;
+
+
+/* navbar definitions */
+
+/* TODO: how about setting this in rem? */
+
+$abs-top-navbar-height: 40px!default;
+$abs-category-navbar-height: 50px!default;

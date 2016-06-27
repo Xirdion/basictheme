@@ -1,0 +1,28 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+$slick-arrow-color: $abs-base-color!default;
+$slick-font-family: 'FontAwesome'!default;
+$slick-prev-character: "\f053"!default;
+$slick-next-character: "\f054"!default;
+$slick-dot-character: "\f111"!default;
+$slick-loader-path : "../bower_components/slick-carousel/slick/"!default;
+
+/*
+
+    Compass/Sass provides an image-url() function in case we want to have all our images in one place.
+    As we are not using that function (unlike slick) we are adjusting its functionality for slick slider.
+    Should we consider using image-url() later in the project, we need to reset this function afterwards.
+
+    For further description of the problem see: 
+    http://stackoverflow.com/questions/34572876/is-it-possible-to-not-use-turn-off-compass-url-helpers-on-purpose
+
+    Also see the resulting PR:
+    https://github.com/kenwheeler/slick/pull/2008
+    
+*/
+
+@function image-url($url) {
+    @return url($slick-loader-path + $url);
+}

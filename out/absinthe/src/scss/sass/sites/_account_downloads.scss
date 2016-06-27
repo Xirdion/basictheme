@@ -1,0 +1,35 @@
+#abs-page.account_downloads {
+    
+    .abs-account-backbtn {
+        width: 100%;
+        display: none;
+        
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+    }
+    
+    .card-block {
+        .row {
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+    
+    /*download-link*/
+    .abs-download-link {
+        line-height: 110%;
+    }
+    
+    /*download-icon*/
+    .abs-download-icon {
+        font-size: 2.1rem;
+        line-height: 110%;
+    }
+    
+    /*file-attributes*/
+    .abs-download-attr {
+        display: inline-block;
+    }
+}

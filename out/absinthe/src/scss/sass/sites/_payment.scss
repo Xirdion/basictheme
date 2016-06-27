@@ -1,0 +1,19 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-page.payment{
+
+    .abs-payment-type{
+
+        .abs-payment-info{
+            display: none;
+        }
+        
+        &.active .abs-payment-info{
+            display: block;
+        }
+
+    }
+
+}

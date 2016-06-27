@@ -1,0 +1,48 @@
+#abs-page.account_order {
+    
+    .abs-account-backbtn {
+        width: 100%;
+        display: none;
+        
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+    }
+    
+    #abs-order-history {
+        
+        .abs-collapse-btn {
+            width: 100%;
+            
+            &:not(.collapsed) {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+        
+        .abs-collapse-card {
+            .card {
+                border-top: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-color: $btn-secondary-border;
+            }
+        }
+        
+        .abs-oder-col {
+            @include media-breakpoint-down(md) {
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        .abs-order-head {
+            line-height: 110%;
+        }
+        
+        .abs-order-img {
+            @include media-breakpoint-down(md) {
+                padding: 0 0.4rem;
+            }
+        }
+    }
+}

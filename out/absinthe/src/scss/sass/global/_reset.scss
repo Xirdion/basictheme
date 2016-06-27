@@ -1,0 +1,33 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+/*a:-webkit-any-link:active {
+    color: none;
+}*/
+
+
+// TODO: check bootstraps .list-unstyled styling
+// absinthe hates ul default styling
+
+ul{
+    padding-left: 0px;
+    list-style: none;
+}
+
+// at the point of development bootstrap v4 discussed .w-100, see: https://github.com/twbs/bootstrap/issues/19221
+// TODO: check if this has made it into bootstrap v4 and update the class name (".w-100") if it has changed
+
+.w-100{
+    width: 100%;
+}
+
+// this is a reset targeting the flexbox layout.
+// It will ensure slick slider will still work inside the flexbox environment.
+// See: https://github.com/kenwheeler/slick/issues/982
+// And: http://stackoverflow.com/questions/26895349/how-can-i-get-ff-33-x-flexbox-behavior-in-ff-34-x
+
+*{
+    min-height: 0;
+    min-width: 0;
+}

@@ -1,0 +1,31 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+.infogrid{
+
+    .abs-list-item{
+        position: relative;
+
+        transition: border 0.2s;
+        border: 1px solid transparent;
+
+        &:hover{
+            border: 1px solid $abs-assist-color;
+            /* well, thats what I call fancy */
+/*            background-color: $abs-background-color;
+            transition: transform 0.2s; 
+            transform: scale(1.05); */
+        }
+
+        .abs-listitem-infogrid-details-holder{
+            height: 6rem;
+        }
+
+        .abs-listitem-infogrid-details{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+    }
+}

@@ -1,0 +1,302 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-navbar-top{
+    color: $abs-background-color;
+    background-color: $abs-base-color;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+
+    line-height: 1.7rem;
+    font-size: 0.9rem;
+
+    address{
+
+        margin: 0px;
+
+        a:hover{
+            text-decoration: underline;
+        }
+
+        i{
+            color: $abs-assist-color;
+            margin-right: 8px;
+            font-size: 1.2rem;
+            position: relative;
+            top: 0.1rem;
+        }
+
+    }
+
+    .pull-xs-right{
+
+        >li{
+            margin-left: 0rem;
+
+            &:first-child{
+                >a{
+                    border-left: 1px solid black;
+                }
+            }
+
+            >a{
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+                border-right: 1px solid #000;
+
+                &:hover{
+                    background-color: $abs-base-color-highlight;
+                }
+            }
+        }
+    }
+
+    .dropdown-menu{
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+        margin-top: 0rem;
+        font-size: inherit;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        background-color: $abs-background-color;
+
+        .dropdown-item{
+            line-height: 1.2rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+
+            &:hover, &:focus{
+                color: $abs-assist-color;
+                background-color: inherit;
+            }
+        }
+    }
+
+}
+
+#abs-compass{
+
+    .row{
+
+        #abs-compass-logo{
+
+            img{
+                width: 230px;
+            }
+
+        }
+
+        #abs-compass-search{
+
+            button{
+                height: 2.4em;
+            }
+
+        }
+
+        #abs-compass-basket{
+
+            #abs-compass-cart{
+
+                position: relative;
+
+                i{
+                    font-size: 60px;
+                    position: relative;
+                    bottom: -10px;
+                    color: $abs-base-color;
+
+                    &:hover{
+                        color: $abs-base-color-highlight;
+                    }
+                }
+
+                span{
+
+                    position: absolute;
+                    top: 6px;
+                    right: 10px;
+                    font-size: 15px;
+                    background-color: $abs-assist-color;
+                    border-radius: 15px;
+                    height: 25px;
+                    width: 25px;
+                    text-align: center;
+                    padding-top: 2px;
+                    color: $abs-background-color;
+
+                }
+
+            }
+
+            #abs-compass-minibasket{
+
+                strong{
+
+                    @include media-breakpoint-down(md){
+                        margin-top: 1rem;
+                    }
+
+                }
+
+                a{
+                    font-size: 0.9rem;
+                }
+            }
+
+        }
+    }
+}
+
+#abs-promo-slider{
+
+    @include media-breakpoint-down(sm){
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .slick-slide{
+        position:relative;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+#abs-navbar-main{
+    background-color: $abs-assist-color;
+
+    .navbar{
+        margin-bottom: 0rem;
+        padding: 0rem;
+
+        /* top navbar needs to overlap main navbar */
+        z-index: 5;
+
+        #abs-navigation{
+            position: relative;
+            width: 100%;
+        }
+
+        .nav-item{
+            position: static;
+            margin-left: 0rem;
+
+            .nav-link{
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+                line-height: 2.2rem;
+                height: 3rem;
+            }
+
+            .dropdown-menu{
+
+                width: 100%;
+                padding: 5px;
+                top: initial;
+                margin-top: 0rem;
+                border: 0.1rem solid $abs-assist-color;
+                border-top-left-radius: 0rem;
+                border-top-right-radius: 0rem;
+                border-top: none;
+
+                ul{
+                    -webkit-column-count: 2;
+                    -moz-column-count: 2;
+                    column-count: 2;
+                    width: 300px;
+                    height: 150px;
+                    margin: 20px;
+
+                    li{
+                        margin-bottom: 10px;
+
+                        a{
+                            color: $abs-base-color;
+                            text-decoration: none;
+
+                            &:hover{
+                                color: $abs-assist-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.active{
+                >a{
+                    background-color: $abs-assist-color-highlight;
+                }
+            }
+
+            &:hover{
+                >a{
+                    background-color: $abs-background-color;
+                    color: $abs-base-color;
+                }
+
+                >div{
+                    display:block;
+                }
+            }
+        }
+    }
+}
+
+#abs-navbar-mobile{
+    background-color: $abs-assist-color;
+
+    #abs-navbar-mobile-tablist{
+
+        a{
+            padding: 0.5rem 0rem;
+
+            &.active{
+                background-color: $abs-assist-color-highlight;
+            }
+
+            i{
+                color: $abs-background-color;
+            }
+        }
+    }
+
+    #abs-navbar-mobile-tabs{
+        background-color: $abs-assist-color-highlight;
+
+        #abs-navbar-mobile-categories{
+            .list-group .list-group {
+
+                display: none;
+
+                &.active, &.expanded{
+                    display: block;
+                }
+                
+            }
+        }
+    }
+}
+
+
+
+@include media-breakpoint-down(sm) {
+    #abs-navbar-top {
+        address {
+            .nav-item {
+                float: none;
+                display: inline-block;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    #abs-compass-logo {
+        img {
+            margin: auto;
+        }
+    }
+}

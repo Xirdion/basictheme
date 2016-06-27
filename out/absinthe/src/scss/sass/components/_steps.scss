@@ -1,0 +1,26 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-steps{
+    font-size: 0.8rem;
+    text-align: center;
+
+    .abs-step-icon-group{
+        position: relative;
+        font-size: 1.5rem;
+        display: inline-block;
+        color: $abs-base-color-highlight;
+
+        .fa.active{
+            color: $abs-assist-color;
+        }
+
+        .fa-check-circle{
+            color: $abs-assist-color;
+            position: absolute;
+            right: -0.8rem;
+            bottom: -0.4rem;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+#abs-page.basket{
+
+    #abs-basketcontents{
+
+        #abs-basketcontents-cols{
+            margin-bottom: 20px;
+        }
+
+        .abs-basketcontents-item{
+
+            .abs-basketitem-small-price{
+                margin-top: 0.2rem;
+                display: inline-block;
+            }
+
+            img{
+                width: 100%;
+                min-width: 64px;
+                max-width: 120px;
+            }
+
+            s{
+                display: block;
+            }
+
+            .abs-quantity-input{
+                max-width: 145px;
+                margin-bottom: 0.5rem;
+
+                input{
+                    min-width: 68px;
+                }
+            }
+
+            .abs-basketitem-buttons{
+                margin-top: 0.5rem;
+            }
+        }
+
+        .alert{
+            margin: 0.5rem 0rem;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+/*
+    This File is part of Absinthe. Drink responsibly.
+*/
+
+/*
+
+    credit goes to http://codepen.io/jamesbarnett/pen/vlpkh
+    
+    TODO: check if ">" operator is necessary
+
+*/
+
+.abs-rating{
+    
+    margin-left: 10px;
+
+    & {
+        border: none;
+        float: left;
+    }
+
+    & > input { display: none; }
+
+    & > label:before {
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+
+    & > label {
+        color: $abs-star-color #ddd; 
+        float: right;
+    }
+
+    &#abs-rate{
+        
+        margin-left: 0px;
+
+        & > label {
+            cursor: pointer;
+            
+            &:before{
+                margin: 5px;
+            }
+        }
+
+        /***** CSS Magic to Highlight Stars on Hover *****/
+
+        & > input:checked ~ label, /* show gold star when clicked */
+            &:not(:checked) > label:hover, /* hover current star */
+            &:not(:checked) > label:hover ~ label { color: $abs-star-selected-color;  } /* hover previous stars in list */
+
+        & > input:checked + label:hover, /* hover current star when changing rating */
+            & > input:checked ~ label:hover,
+            & > label:hover ~ input:checked ~ label, /* lighten current selection */
+            & > input:checked ~ label:hover ~ label { color: $abs-star-color-highlight;  }
+
+    }
+
+    &.abs-rated{
+
+        display: inline-block;
+        float: none;
+        
+        & > label{
+            
+            float: none;
+            
+            &.active{
+                color: $abs-star-selected-color;
+            }
+        }
+
+    }
+
+}

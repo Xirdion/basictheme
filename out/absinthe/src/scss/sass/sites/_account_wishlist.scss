@@ -1,0 +1,11 @@
+#abs-page.account_wishlist {
+    
+    .abs-account-backbtn {
+        width: 100%;
+        display: none;
+        
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+    }
+}
