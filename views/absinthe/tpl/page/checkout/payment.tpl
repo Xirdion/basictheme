@@ -97,80 +97,77 @@
         [{/block}]
 
         [{block name="change_payment"}]
-        [{oxscript include="js/widgets/abs-oxpayment.js" priority=10}]
-        [{oxscript add="$( '#payment' ).oxPayment();"}]
-        <form action="[{$oViewConf->getSslSelfLink()}]" id="payment" name="order" method="post">
-            <div>
-                [{$oViewConf->getHiddenSid()}]
-                [{$oViewConf->getNavFormParams()}]
-                <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-                <input type="hidden" name="fnc" value="validatepayment">
-            </div>
+            [{oxscript add="$('#payment').oxPayment();"}]
+            <form action="[{$oViewConf->getSslSelfLink()}]" id="payment" name="order" method="post">
+                <div>
+                    [{$oViewConf->getHiddenSid()}]
+                    [{$oViewConf->getNavFormParams()}]
+                    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
+                    <input type="hidden" name="fnc" value="validatepayment">
+                </div>
+                    
+                [{if $oView->getPaymentList()}]
+                    <h3 class="h3">[{oxmultilang ident="PAYMENT_METHOD"}]</h3>
+                    [{assign var="inptcounter" value="-1"}]
 
-            [{if $oView->getPaymentList()}]
-            <h3 class="h3">[{oxmultilang ident="PAYMENT_METHOD"}]</h3>
-            [{assign var="inptcounter" value="-1"}]
+                    <div id="accordion" class="absjs-payment m-t-2 m-b-2" role="tablist" aria-multiselectable="true">
+                        [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
+                            <div class="panel panel-default card abs-payment-type [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active[{/if}]">
+                                [{assign var="inptcounter" value="`$inptcounter+1`"}]
+                                [{block name="select_payment"}]
+                                    [{if $sPaymentID == "oxidcashondel"}]
+                                        [{include file="page/checkout/inc/payment_oxidcashondel.tpl"}]
+                                    [{elseif $sPaymentID == "oxidcreditcard"}]
+                                        [{include file="page/checkout/inc/payment_oxidcreditcard.tpl"}]
+                                    [{elseif $sPaymentID == "oxiddebitnote"}]
+                                        [{include file="page/checkout/inc/payment_oxiddebitnote.tpl"}]
+                                    [{else}]
+                                        [{include file="page/checkout/inc/payment_other.tpl"}]
+                                    [{/if}]
+                                [{/block}]
+                            </div>
+                        [{/foreach}]
 
-            <div class="m-t-2 m-b-2">
-                [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
-                <div class="abs-payment-type [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active[{/if}]">
-                    [{assign var="inptcounter" value="`$inptcounter+1`"}]
-                    [{block name="select_payment"}]
-                    [{if $sPaymentID == "oxidcashondel"}]
-                    [{include file="page/checkout/inc/payment_oxidcashondel.tpl"}]
-                    [{elseif $sPaymentID == "oxidcreditcard"}]
-                    [{include file="page/checkout/inc/payment_oxidcreditcard.tpl"}]
-                    [{elseif $sPaymentID == "oxiddebitnote"}]
-                    [{include file="page/checkout/inc/payment_oxiddebitnote.tpl"}]
-                    [{else}]
-                    [{include file="page/checkout/inc/payment_other.tpl"}]
-                    [{/if}]
+                    </div>
+
+                    [{* TRUSTED SHOPS BEGIN *}]
+                    [{include file="page/checkout/inc/trustedshops.tpl"}]
+                    [{* TRUSTED SHOPS END *}]
+
+                    [{block name="checkout_payment_nextstep"}]
+                        [{if $oView->isLowOrderPrice()}]
+                            <div class="alert alert-warning" role="alert">[{oxmultilang ident="MIN_ORDER_PRICE"}] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
+                        [{else}]
+                            <div class="row">
+                                <div class="col-sm-3 col-md-2 m-b-1">
+                                    <a href="[{oxgetseourl ident=$oViewConf->getOrderLink()}]" class="btn btn-secondary"><i class="fa fa-chevron-left"></i> [{oxmultilang ident="PREVIOUS_STEP"}]</a>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-7 col-xs-offset-0 m-b-2">
+                                    <button class="btn btn-primary pull-sm-right" name="userform" type="submit">[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}] <i class="fa fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        [{/if}]
                     [{/block}]
-                </div>
-                [{/foreach}]
 
-            </div>
+                [{elseif $oView->getEmptyPayment()}]
+                    [{block name="checkout_payment_nopaymentsfound"}]
+                        <h3 class="h3">[{oxmultilang ident="PAYMENT_INFORMATION"}]</h3>
+                        [{oxifcontent ident="oxnopaymentmethod" object="oCont"}]
+                            [{$oCont->oxcontents__oxcontent->value}]
+                        [{/oxifcontent}]
+                        <input type="hidden" name="paymentid" value="oxempty">
 
-            [{* TRUSTED SHOPS BEGIN *}]
-            [{include file="page/checkout/inc/trustedshops.tpl"}]
-            [{* TRUSTED SHOPS END *}]
-
-            [{block name="checkout_payment_nextstep"}]
-            [{if $oView->isLowOrderPrice()}]
-
-            <div class="alert alert-warning" role="alert">[{oxmultilang ident="MIN_ORDER_PRICE"}] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
-
-            [{else}]
-            <div class="row">
-                <div class="col-sm-3 col-md-2 m-b-1">
-                    <a href="[{oxgetseourl ident=$oViewConf->getOrderLink()}]" class="btn btn-secondary"><i class="fa fa-chevron-left"></i> [{oxmultilang ident="PREVIOUS_STEP"}]</a>
-                </div>
-                <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-7 col-xs-offset-0 m-b-2">
-                    <button class="btn btn-primary pull-sm-right" name="userform" type="submit">[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}] <i class="fa fa-chevron-right"></i></button>
-                </div>
-            </div>
-            [{/if}]
-            [{/block}]
-
-            [{elseif $oView->getEmptyPayment()}]
-            [{block name="checkout_payment_nopaymentsfound"}]
-            <h3 class="h3">[{oxmultilang ident="PAYMENT_INFORMATION"}]</h3>
-            [{oxifcontent ident="oxnopaymentmethod" object="oCont"}]
-            [{$oCont->oxcontents__oxcontent->value}]
-            [{/oxifcontent}]
-            <input type="hidden" name="paymentid" value="oxempty">
-
-            <div class="row">
-                <div class="col-sm-3 col-md-2 m-b-1">
-                    <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=user"}]" class="btn btn-secondary"><i class="fa fa-chevron-left"></i> [{oxmultilang ident="PREVIOUS_STEP"}]</a>
-                </div>
-                <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-7 col-xs-offset-0 m-b-2">
-                    <button class="btn btn-primary pull-sm-right" name="userform" type="submit">[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}] <i class="fa fa-chevron-right"></i></button>
-                </div>
-            </div>
-            [{/block}]
-            [{/if}]
-        </form>
+                        <div class="row">
+                            <div class="col-sm-3 col-md-2 m-b-1">
+                                <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=user"}]" class="btn btn-secondary"><i class="fa fa-chevron-left"></i> [{oxmultilang ident="PREVIOUS_STEP"}]</a>
+                            </div>
+                            <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-7 col-xs-offset-0 m-b-2">
+                                <button class="btn btn-primary pull-sm-right" name="userform" type="submit">[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}] <i class="fa fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    [{/block}]
+                [{/if}]
+            </form>
         [{/block}]
     [{/block}]
 [{/capture}]

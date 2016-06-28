@@ -45,6 +45,14 @@ $(document).ready(function () {
             $('#sidebar')[0].setAttribute('style', 'display:block !important');
             $('#abs-content').hide();
         });
+    } else if (page.hasClass('payment')) {
+        // after selecting a payment-method, the radiobutton has to be set to checked
+        $('.absjs-payment').on('show.bs.collapse', function() {
+            var self = $(this);
+            setTimeout(function() {
+                self.find('.absjs-payment-collapse:not(.collapsed)').find('input').prop('checked', true);
+            }, 50);
+        });
     }
     //fire widgets needed on all pages
 
@@ -730,11 +738,11 @@ $(document).ready(function () {
             var self = this,
                     options = self.options,
                     el = self.element;
-
-            $("input[type=radio]", el).click(function () {
-                $(el).find(".abs-payment-type").removeClass('active');
+            $('.absjs-payment-collapse', el).click(function() {
+                //$(el).find(".abs-payment-type").removeClass('active');
                 $(el).find("input[required], select[required], textarea[required]").attr('disabled', true);
-                $(this).closest('.abs-payment-type').addClass('active').find("input[disabled], select[disabled], textarea[disabled]").attr('disabled', false);
+                //$(this).closest('.abs-payment-type').addClass('active').find("input[disabled], select[disabled], textarea[disabled]").attr('disabled', false);
+                $(this).closest('.abs-payment-type').find("input[disabled], select[disabled], textarea[disabled]").attr('disabled', false);
             });
 
             // TODO: click on selected radio button
