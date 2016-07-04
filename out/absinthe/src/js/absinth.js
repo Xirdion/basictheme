@@ -14,10 +14,111 @@
  */
 
 $(document).ready(function () {
+    var page = $('#abs-page');
+    
+    // fixing-menu-navbar at scrolling
+    var menubar = $('#abs-navbar-main');
+    if (!menubar.is(':visible')) {
+        menubar = $('#abs-navbar-mobile');
+    }
+    var menuTop = menubar.offset().top;
+    
+    if ($(window).scrollTop() >= menuTop) {
+        menubar.addClass('fixed');
+    } else {
+        menubar.removeClass('fixed');
+    }
+    
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= menuTop) {
+            menubar.addClass('fixed');
+        } else {
+            menubar.removeClass('fixed');
+        }
+    });
+
+    $(window).resize(function() {
+        menubar = $('#abs-navbar-main');
+        if (menubar.is(':visible')) {
+            if ($('body').is('.menu-open')) {
+                var c = 'menu-open';
+                $('#abs-mobile-menu-overlay').removeClass(c);
+                $('#abs-page').removeClass(c);
+                $('body').removeClass(c);
+                
+                setTimeout(function() {
+                    $(window).scrollTop(y);
+                    $('#abs-navbar-mobile').css('top', 0);
+                }, 20);
+            }
+        } else {
+            menubar = $('#abs-navbar-mobile');
+        }
+        menuTop = menubar.offset().top;
+    });
+    
     //TODO: change this to some absjs class
 
-    var page = $('#abs-page');
-
+    // create mobile menu
+    $('#abs-mobile-menu').slinky({
+        label: null,
+        title: true
+    });
+    
+    var y = 0;
+    
+    // clicking on menu-bars
+    $('#absjs-openmenu').click(function(event) {
+        event.preventDefault();
+        
+        y = $(window).scrollTop();
+        var c = 'menu-open',
+            mFixed = false;
+            
+        if (menubar.is('.fixed')) {
+            mFixed = true;
+        }
+            
+        $('#abs-mobile-menu-overlay').addClass(c);
+        page.addClass(c);
+        $('body').addClass(c);
+        
+        setTimeout(function() {
+            page.css('top', -y);
+            if (mFixed) {
+                menubar.addClass('fixed');
+                menubar.css('top', y);
+            }
+            $('#abs-mobile-menu-container').css('top', y);
+        }, 20);
+    });
+    
+    // clicking on close menu
+    $('#absjs-menu-close').click(function() {
+        var c = 'menu-open';
+        $('#abs-mobile-menu-overlay').removeClass(c);
+        page.removeClass(c);
+        $('body').removeClass(c);
+        
+        setTimeout(function() {
+            $(window).scrollTop(y);
+            menubar.css('top', 0);
+        }, 20);
+    });
+    
+    // clicking on menu-overlay
+    $('#abs-mobile-menu-overlay').click(function() {
+        var c = 'menu-open';
+        $(this).removeClass(c);
+        page.removeClass(c);
+        $('body').removeClass(c);
+        
+        setTimeout(function() {
+            $(window).scrollTop(y);
+            menubar.css('top', 0);
+        }, 20);
+    });
+    
     // scoping JS on controller level
 
     if (page.hasClass('start')) {
@@ -824,3 +925,51 @@ $(document).ready(function () {
     $.widget("ui.oxUserShippingAddressSelect", oxUserShippingAddressSelect);
 
 })(jQuery);
+
+// Cookie-Notification
+( function ( $ ) {
+    /**
+     * Cookie note handler
+     */
+    oxCookieNote = {
+        options: {
+            closeButton : ".dismiss"
+        },
+        /**
+         * Enable cookie note dismiss
+         *
+         * @return false
+         */
+        _create: function() {
+            var self = this;
+
+            $.cookie('cookiesEnabledCheck', 'yes');
+
+            if ($.cookie('cookiesEnabledCheck')) {
+                $.cookie('cookiesEnabledCheck', null, -1);
+
+                if( !$.cookie("displayedCookiesNotification") ) {
+                    $.cookie("displayedCookiesNotification", 1, { path: '/', expires: 30 });
+                    $('#abs-cookienote').show();
+
+                    // need to add this even only if we decide to show cookie note
+                    $(self.options.closeButton, self.element).click(
+                        function(){
+                            self.element.fadeOut('slow').remove();
+                            return false;
+                        }
+                    );
+                } else {
+                    self.element.remove();
+                    return false;
+                }
+            }
+        }
+    };
+
+    /**
+     * CookieNote widget
+     */
+    $.widget("ui.oxCookieNote", oxCookieNote );
+
+})( jQuery );

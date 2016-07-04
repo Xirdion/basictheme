@@ -54,6 +54,8 @@
     [{/block}]
 
     [{block name="base_style"}]
+		[{*oxstyle include="slinky/css/jquery.slinky.css"*}]
+		[{*oxstyle include="slinky/css/master.css"*}]
         [{oxstyle include="css/absinth.css"}]
     [{/block}]
 
@@ -107,10 +109,12 @@
             [{oxscript include="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" priority=1}]
             
             [{oxscript include="bower_components/slick-carousel/slick/slick.min.js" priority=1}]
-            [{oxscript include="bower_components/slick-carousel/slick/slick.min.js" priority=1}]
+            [{*oxscript include="bower_components/slick-carousel/slick/slick.min.js" priority=1*}]
             
             [{oxscript include="bower_components/photoswipe/dist/photoswipe.min.js" priority=1}]
             [{oxscript include="bower_components/photoswipe/dist/photoswipe-ui-default.min.js" priority=1}]
+			
+			[{oxscript include="slinky/js/jquery.slinky.js" priority=1}]
 			
             [{oxscript include="js/absinth.js" priority=1}]
             

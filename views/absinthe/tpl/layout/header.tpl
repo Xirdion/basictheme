@@ -25,14 +25,22 @@
                 </a>
                 <div class="dropdown-menu">
                     [{block name="widget_header_servicebox_items"}]
-                    <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]" rel="nofollow"><i class="fa fa-user"></i> [{oxmultilang ident="MY_ACCOUNT"}]</a>
-                    <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order"}]" rel="nofollow"><i class="fa fa-list"></i> [{oxmultilang ident="MY_ORDER_HISTORY"}]</a>
-                    <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_wishlist"}]" rel="nofollow"><i class="fa fa-gift"></i> [{oxmultilang ident="MY_GIFT_REGISTRY"}][{if $oxcmp_user && $oxcmp_user->getWishListArtCnt()}] ([{$oxcmp_user->getWishListArtCnt()}])[{/if}]</a>
-                    <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads"}]" rel="nofollow"><i class="fa fa-download"></i> [{oxmultilang ident="MY_DOWNLOADS"}]</a>
                     [{if $oxcmp_user}]
-                    <a class="dropdown-item" href="[{$oViewConf->getLogoutLink()}]" rel="nofollow"><i class="fa fa-sign-out"></i> [{oxmultilang ident="LOGOUT"}]</a>
+                        <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]" rel="nofollow"><i class="fa fa-user"></i> [{oxmultilang ident="MY_ACCOUNT"}]</a>
+                        <a class="dropdown-item" href="[{$oViewConf->getLogoutLink()}]" rel="nofollow"><i class="fa fa-sign-out"></i> [{oxmultilang ident="LOGOUT"}]</a>
+                    [{else}]
+                        <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]" rel="nofollow"><i class="fa fa-sign-in"></i> [{oxmultilang ident="LOGIN"}]</a>
                     [{/if}]
-
+                        [{*<a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order"}]" rel="nofollow">
+                            <i class="fa fa-list"></i> [{oxmultilang ident="MY_ORDER_HISTORY"}]
+                        </a>
+                        <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_wishlist"}]" rel="nofollow">
+                            <i class="fa fa-gift"></i> [{oxmultilang ident="MY_GIFT_REGISTRY"}][{if $oxcmp_user && $oxcmp_user->getWishListArtCnt()}] ([{$oxcmp_user->getWishListArtCnt()}])[{/if}]
+                        </a>
+                        <a class="dropdown-item" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads"}]" rel="nofollow">
+                            <i class="fa fa-download"></i> [{oxmultilang ident="MY_DOWNLOADS"}]
+                        </a>*}]
+                            
                     [{/block}]
                 </div>
             </li>
@@ -64,9 +72,9 @@
                 <div id="abs-compass-minibasket" class="text-xs-right pull-xs-right m-t-1 hidden-md-down">
                     <strong class="center-block">
                         [{if $oxcmp_basket->isPriceViewModeNetto()}]
-                        [{$oxcmp_basket->getProductsNetPrice()}]
+                            [{$oxcmp_basket->getProductsNetPrice()}]
                         [{else}]
-                        [{$oxcmp_basket->getFProductsPrice()}]
+                            [{$oxcmp_basket->getFProductsPrice()}]
                         [{/if}]
                         [{assign var="currency" value=$oView->getActCurrency()}]
                         [{$currency->sign}]
@@ -90,51 +98,75 @@
     <nav class="navbar navbar-full navbar-dark" role="navigation">
         <div class="container">
             <div id="abs-navigation">
-                [{oxid_include_widget cl="oxwCategoryTree" cnid=$oView->getCategoryId() sWidgetType="header"  _parent=$oView->getClassName() nocookie=1}]
+                [{oxid_include_widget cl="oxwCategoryTree" cnid=$oView->getCategoryId() sWidgetType="header" _parent=$oView->getClassName() nocookie=1}]
             </div>
         </div>
     </nav>
 </div>
-
-<div id="abs-navbar-mobile">
-
-    <div id="abs-navbar-mobile-tablist" class="hidden-md-up container-fluid">
+         
+[{* mobile-header-menu *}]
+<div id="abs-navbar-mobile" class="hidden-md-up">
+    <div id="abs-navbar-mobile-tablist" class="container-fluid">
         <ul id="absjs-navtab" class="row text-xs-center m-b-0">
-            
-            <li class="col-xs-3 p-l-0 p-r-0">
-                [{if $oxcmp_categories}]
-                <a class="center-block" data-toggle="absjs-tabcollapse" href="#abs-navbar-mobile-categories"><i class="fa fa-bars fa-2x"></i></a>
-                [{/if}]
+            <li id="abs-menu-open" class="col-xs-3 text-xs-center p-l-0 p-r-0">
+                <a href="#" id="absjs-openmenu" class="center-block" role="button"><i class="fa fa-bars fa-2x"></i></a>
             </li>
-            <li class="col-xs-3 text-xs-center  p-l-0 p-r-0">
+            <li class="col-xs-3 text-xs-center p-l-0 p-r-0">
                 [{if $oView->showSearch()}]
-                <a class="center-block" data-toggle="absjs-tabcollapse" href="#abs-navbar-mobile-search"><i class="fa fa-search fa-2x"></i></a>
+                    <a class="center-block" data-toggle="absjs-tabcollapse" href="#abs-navbar-mobile-search"><i class="fa fa-search fa-2x"></i></a>
                 [{/if}]
             </li>
-            <li class="col-xs-3 text-xs-center  p-l-0 p-r-0">
+            <li class="col-xs-3 text-xs-center p-l-0 p-r-0">
                 <a class="center-block" href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]"><i class="fa fa-user fa-2x"></i></a>
             </li>
-            <li class="col-xs-3 text-xs-center  p-l-0 p-r-0">
+            <li class="col-xs-3 text-xs-center p-l-0 p-r-0">
                 <a class="center-block" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket"}]"><i class="fa fa-shopping-cart fa-2x"></i></a>
             </li>
         </ul>
     </div>
-
-    <div id="abs-navbar-mobile-tabs" class="hidden-md-up">
+    <div id="abs-navbar-mobile-tabs">
         <div class="tab-content">
-            <div  class="collapse" id="abs-navbar-mobile-categories">
-                [{oxid_include_widget cl="oxwCategoryTree" cnid=$oView->getCategoryId() sWidgetType="mobileheader"  _parent=$oView->getClassName() nocookie=1}]
-            </div>
             <div class="collapse p-a-1" id="abs-navbar-mobile-search">
                 [{include file="widget/header/search.tpl"}]
             </div>
         </div>
     </div>
+</div>
 
+<div id="abs-mobile-menu-container">
+    <h2 class="m-t-1 h4">Menu<a href="#" id="absjs-menu-close" class="m-r-1 h5"><i class="fa fa-arrow-right"></i></a></h2>
+    <div id="abs-mobile-menu" class="slinky-menu m-x-1 m-b-1">
+        <ul>
+            <li class="header abs-menu-header">
+                <h3>[{oxmultilang ident="MY_ACCOUNT"}]</h3>
+            </li>
+            [{if $oxcmp_user}]
+                <li>
+                    <a href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]" rel="nofollow" class="p-x-1" title="[{oxmultilang ident="MY_ACCOUNT"}]">[{oxmultilang ident="MY_ACCOUNT"}]</a>
+                </li>
+                <li>
+                    <a href="[{$oViewConf->getLogoutLink()}]" rel="nofollow" class="p-x-1" title="[{oxmultilang ident="LOGOUT"}]">[{oxmultilang ident="LOGOUT"}]</a>
+                </li>
+            [{else}]
+                <li>
+                    <a href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account"}]" rel="nofollow" class="p-x-1" title="[{oxmultilang ident="LOGIN"}]">[{oxmultilang ident="LOGIN"}]</a>
+                </li>
+            [{/if}]
+        </ul>
+        <ul>
+            <li class="header abs-menu-header">
+                <h3>[{oxmultilang ident="CATEGORIES"}]</h3>
+            </li>
+            <li>
+                <a href="[{oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cnid=oxmore&amp;cl=alist"}]" class="p-x-1" title="[{oxmultilang ident="CATEGORY_OVERVIEW"}]">[{oxmultilang ident="CATEGORY_OVERVIEW"}]</a>
+            </li>
+            [{oxid_include_widget cl="oxwCategoryTree" cnid=$oView->getCategoryId() sWidgetType="header" _parent=$oView->getClassName() nocookie=1 ismobile=1}]
+        </ul>
+    </div>
 </div>
 
 [{if $oView->getClassName()=='start' && $oView->getBanners()|@count > 0}]
-[{include file="widget/promoslider.tpl" }]
+    [{include file="widget/promoslider.tpl" }]
 [{/if}]
 
 

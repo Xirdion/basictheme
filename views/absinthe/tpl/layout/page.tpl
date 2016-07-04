@@ -5,6 +5,7 @@
         [{include file="rdfa/rdfa.tpl"}]
     [{/if}]
     <div id="abs-page" class="[{$class_name}][{if $sidebar}] sidebar[{$sidebar}][{/if}]">
+        <div id="abs-mobile-menu-overlay"></div>
         [{block name="layout_header"}]
             [{include file="layout/header.tpl"}]
         [{/block}]

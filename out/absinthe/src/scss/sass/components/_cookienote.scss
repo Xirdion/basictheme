@@ -1,0 +1,35 @@
+#abs-cookienote {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: $abs-base-color;
+    color: $abs-background-color;
+    display: none;
+    
+    .abs-cookie-notify {
+        position: relative;
+        text-align: center;
+    }
+    
+    .cancelCookie {
+        display: inline-block;
+        width: 100%;
+    }
+    
+    .dismiss {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        border: 2px solid $abs-assist-color;
+        border-radius: 100%;
+        width: 1.8rem;
+        height: 1.9rem;
+        text-align: center;
+        line-height: 1.7rem;
+        
+        a {
+            font-weight: bold;
+        }
+    }
+}

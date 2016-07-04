@@ -20,6 +20,10 @@ $aLang = array(
     'FILESIZE'                      => 'Dateigröße',
     'START_DOWNLOAD'                => 'Download starten',
     'CLOCK'                         => 'Uhr',
-    'REMOVE_FROM_WISHLIST'          => 'vom Wunschzettel entfernen'
+    'REMOVE_FROM_WISHLIST'          => 'vom Wunschzettel entfernen',
+    
+    // FOOTER-LINKS-TITLE
+    'CONTACT_TITLE'                 => 'Schreiben Sie uns',
+    'HELP_TITLE'                    => 'Falls Sie Hilfe brauchen'
 
 );

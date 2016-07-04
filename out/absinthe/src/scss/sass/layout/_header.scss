@@ -164,34 +164,47 @@
     }
 }
 
-#abs-navbar-main{
+#abs-navbar-main {
     background-color: $abs-assist-color;
 
-    .navbar{
+    &.fixed {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        top: 0;
+        left: 0;
+    }
+    
+    .navbar {
         margin-bottom: 0rem;
         padding: 0rem;
 
         /* top navbar needs to overlap main navbar */
         z-index: 5;
 
-        #abs-navigation{
+        #abs-navigation {
             position: relative;
             width: 100%;
+            
+            .navbar-nav {
+                text-align: center;
+            }
         }
 
-        .nav-item{
-            position: static;
+        .nav-item {
+            /*position: static;*/
             margin-left: 0rem;
+            display: inline-block;
+            float: none;
 
-            .nav-link{
+            .nav-link {
                 padding-left: 0.8rem;
                 padding-right: 0.8rem;
                 line-height: 2.2rem;
                 height: 3rem;
             }
 
-            .dropdown-menu{
-
+            .dropdown-menu {
                 width: 100%;
                 padding: 5px;
                 top: initial;
@@ -201,16 +214,18 @@
                 border-top-right-radius: 0rem;
                 border-top: none;
 
-                ul{
-                    -webkit-column-count: 2;
+                ul {
+                    /*-webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;
                     width: 300px;
-                    height: 150px;
+                    height: 150px;*/
                     margin: 20px;
 
                     li{
+                        float: left;
                         margin-bottom: 10px;
+                        margin-left: 20px;
 
                         a{
                             color: $abs-base-color;
@@ -244,42 +259,37 @@
     }
 }
 
-#abs-navbar-mobile{
+#abs-navbar-mobile {
     background-color: $abs-assist-color;
 
-    #abs-navbar-mobile-tablist{
-
-        a{
+    &.fixed {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        top: 0;
+        left: 0;
+    }
+    
+    #abs-navbar-mobile-tablist {
+        
+        a {
+            color: $abs-background-color;
             padding: 0.5rem 0rem;
 
-            &.active{
+            &.active {
                 background-color: $abs-assist-color-highlight;
             }
 
-            i{
+            i {
                 color: $abs-background-color;
             }
         }
     }
 
-    #abs-navbar-mobile-tabs{
+    #abs-navbar-mobile-tabs {
         background-color: $abs-assist-color-highlight;
-
-        #abs-navbar-mobile-categories{
-            .list-group .list-group {
-
-                display: none;
-
-                &.active, &.expanded{
-                    display: block;
-                }
-                
-            }
-        }
     }
 }
-
-
 
 @include media-breakpoint-down(sm) {
     #abs-navbar-top {
@@ -298,5 +308,33 @@
         img {
             margin: auto;
         }
+    }
+}
+
+
+
+
+
+
+/* show mobile menu on tablet (device-width!)*/
+/* Landscape only for iPad / Tablet */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation : landscape) {
+    #abs-navbar-main {
+        display: none !important;
+    }
+    #abs-navbar-mobile {
+        display: block !important;
+    }
+}
+/* Portrait only for iPad / Tablet */
+@media (min-device-width: 768px) and (max-device-width: 991px) {
+    #abs-navbar-main {
+        display: none !important;
+    }
+    #abs-navbar-mobile {
+        display: block !important;
     }
 }

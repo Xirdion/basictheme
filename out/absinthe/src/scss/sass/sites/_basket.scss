@@ -2,7 +2,7 @@
     This File is part of Absinthe. Drink responsibly.
 */
 
-#abs-page.basket {
+#abs-page.basket, #abs-page.order {
 
     #abs-basketcontents {
 
@@ -31,9 +31,13 @@
                     min-width: 68px;
                 }
             }
-
+            
             .abs-basketitem-buttons {
                 margin-top: 0.5rem;
+            }
+            
+            .abs-inlinelineblock {
+                display: inline-block;
             }
         }
 

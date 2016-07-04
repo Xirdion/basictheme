@@ -1,0 +1,144 @@
+// move the content to show the menu and don't allow scrolling in content
+#abs-page {
+    transition: transform 0.5s ease;
+    -webkit-transition: transform 0.5s ease;
+    
+    &.menu-open {
+        transform: translateX(80%);
+        -webkit-transform: translateX(80%);
+        position: fixed;
+        width: 100%;
+    }
+}
+
+// mobile menu
+#abs-mobile-menu-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80%;
+    height: 100vh;
+    max-width: 80%;
+    z-index: 1100;
+    background: $abs-background-color;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    border-right: 2px solid $abs-base-color;
+    overflow: auto;
+    
+    h2 {
+        position: relative;
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+        
+        a {
+            color: #000;
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 0;
+        }
+    }
+    
+    #abs-mobile-menu {
+        overflow: hidden;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        
+        &>ul {
+            left: 0;
+            position: relative;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transition: all 300ms ease;
+            -webkit-transition: all 300ms ease;
+        }
+        
+        ul {
+            width: 100%;
+            list-style: none;
+            margin: 0;
+        }
+        
+        li {
+            margin: 0;
+            
+            &.active {
+                &>a {
+                    color: $abs-assist-color;
+                }
+            }
+            
+            &.header {
+                position: relative;
+            }
+            
+            ul {
+                display: none;
+                left: 100%;
+                position: absolute;
+                top: 0;
+            }
+        }
+        
+        a {
+            border-bottom: 1px solid #ccc;
+            display: block;
+            padding: 0.8rem 0;
+            position: relative;
+            color: #000;
+            
+            &.active {
+                color: $abs-assist-color;
+            }
+            
+            &.next {
+                i {
+                    position: absolute;
+                    top: 50%;
+                    right: 1rem;
+                    transform: translateY(-50%);
+                }
+            }
+            
+            &.back {
+                left: 0;
+                position: absolute;
+                top: 2rem;
+                border: none;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+            }
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            padding: 2rem 0 .5rem 0;
+            text-align: center;
+        }
+        .abs-menu-header {
+            .back {
+                display: none;
+            }
+        }
+    }
+}
+
+// content-overlay while the menu is visible
+#abs-mobile-menu-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    
+    &.menu-open {
+        z-index: 1100;
+    }
+}
