@@ -20,7 +20,7 @@
                 <input type="text" class="form-control" id="abs-newsletter-lastname" name="editval[oxuser__oxlname]" placeholder="[{oxmultilang ident="LAST_NAME"}]" value="[{if $aRegParams.oxuser__oxlname}][{$aRegParams.oxuser__oxlname}][{/if}]" />
             </fieldset>
             [{if $aErrors}][{/if}]
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-newsletter-email">[{oxmultilang ident="EMAIL" suffix="COLON"}]</label>
                 <input required type="email" class="form-control" id="abs-newsletter-email" name="editval[oxuser__oxusername]" placeholder="your@mail.com" value="[{if $aRegParams.oxuser__oxusername}][{$aRegParams.oxuser__oxusername}][{/if}]" />
             </fieldset>

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6 col-sm-8 col-xs-12">
-        <fieldset class="form-group">
+        <fieldset class="form-group req">
             <label for="abs-user-oxusername">[{oxmultilang ident="EMAIL_ADDRESS" suffix="COLON"}]</label>
             <input required type="email" class="form-control" id="abs-user-oxusername" name="lgn_usr" value="[{$oView->getActiveUsername()}]" />
         </fieldset>
@@ -10,7 +10,7 @@
             <label class="c-input c-checkbox">
                 <input type="checkbox" name="blnewssubscribed" value="1" [{if $oView->isNewsSubscribed()}]checked[{/if}]>
                 <span class="c-indicator"></span>
-                Newsletter abonnieren
+                [{oxmultilang ident="NEWSLETTER_SUBSCRIPTION"}]
             </label>
         </div>  
     </div>

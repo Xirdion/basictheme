@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-sm-8 col-xs-12">
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-forgotpwd-email">[{oxmultilang ident="YOUR_EMAIL_ADDRESS" suffix="COLON"}]</label>
                 <input required type="email" class="form-control" id="abs-forgotpwd-email" name="lgn_usr" placeholder="your@mail.com" value="[{$oView->getActiveUsername()}]" />
             </fieldset>

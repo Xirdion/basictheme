@@ -13,7 +13,7 @@
             </div>
             <div id="absjs-guestbook-message" class="row abs-guestbook-message">
                 <div class="col-lg-6 col-sm-8 col-xs-12">
-                    <fieldset class="form-group">
+                    <fieldset class="form-group req">
                         <label for="abs-guestbook-msg">[{oxmultilang ident="MESSAGE" suffix="COLON"}]</label>
                         <textarea required rows="8" class="form-control" id="abs-guestbook-msg" name="rvw_txt"></textarea>
                     </fieldset>

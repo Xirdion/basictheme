@@ -8,11 +8,11 @@
         <input type="hidden" name="fnc" value="login_noredirect">
         <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
     </div>
-    <fieldset class="form-group">
+    <fieldset class="form-group req">
         <label for="abs-email-input">[{oxmultilang ident="EMAIL_ADDRESS"}]</label>
         <input type="email" name="lgn_usr" required class="form-control" id="abs-email-input" placeholder="your@mail.com" value="">
     </fieldset>
-    <fieldset class="form-group">
+    <fieldset class="form-group req">
         <label for="abs-password-input">[{oxmultilang ident="PASSWORD" suffix="COLON"}]</label>
         <input type="password" name="lgn_pwd" required class="form-control" id="abs-password-input">
     </fieldset>

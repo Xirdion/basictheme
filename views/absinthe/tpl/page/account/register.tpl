@@ -10,7 +10,7 @@
     <h1 id="openAccHeader" class="h1">[{$oView->getTitle()}]</h1>
     [{include file="form/register.tpl"}]
 [{/capture}]
-[{include file="layout/page.tpl" sidebar="Left"}]
+[{include file="layout/page.tpl"}]
 [{*if $oView->isActive('PsLogin')}]
     [{include file="layout/popup.tpl"}]
 [{else}]

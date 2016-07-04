@@ -13,8 +13,9 @@
       [{/if}]
     </div>
 [{/capture}]
-[{if $oView->isActive('PsLogin') }]
+[{include file="layout/page.tpl" sidebar="Left"}]
+[{*if $oView->isActive('PsLogin') }]
     [{include file="layout/popup.tpl"}]
 [{else}]
     [{include file="layout/page.tpl" sidebar="Left"}]
-[{/if}]
+[{/if*}]

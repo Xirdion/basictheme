@@ -13,11 +13,11 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-sm-8 col-xs-12">
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-recedit-title">[{oxmultilang ident="TITLE" suffix="COLON"}]</label>
                 <input required type="text" class="form-control" id="abs-recedit-title" name="recomm_title" value="[{$actvrecommlist->oxrecommlists__oxtitle->value}]" />
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-recedit-author">[{oxmultilang ident="AUTHOR" suffix="COLON"}]</label>
                 <input required type="text" class="form-control" id="abs-recedit-author" name="recomm_author" value="[{if $actvrecommlist->oxrecommlists__oxauthor->value}][{$actvrecommlist->oxrecommlists__oxauthor->value}][{elseif !$actvrecommlist}][{$oxcmp_user->oxuser__oxfname->value}] [{$oxcmp_user->oxuser__oxlname->value}][{/if}]" />
             </fieldset>

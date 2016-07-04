@@ -38,14 +38,14 @@
 
         <div class="row">
             <div class="col-lg-6 col-sm-8 col-xs-12">
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label for="payment_[{$sPaymentID}]_1">
                         [{oxmultilang ident="BANK" suffix="COLON"}]
                     </label>
                     <input id="payment_[{$sPaymentID}]_1" required type="text" class="form-control" maxlenght="64" name="dynvalue[lsbankname]" autocomplete="off" value="[{$dynvalue.lsbankname}]" [{if !$isChecked}]disabled[{/if}]/>
                 </fieldset>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label for="payment_[{$sPaymentID}]_2">
                         [{if $oView->isOldDebitValidationEnabled()}]
                         [{oxmultilang ident="BANK_CODE" suffix="COLON"}]
@@ -56,7 +56,7 @@
                     <input id="payment_[{$sPaymentID}]_2" required type="text" class="form-control" maxlenght="64" name="dynvalue[lsblz]" autocomplete="off" value="[{$dynvalue.lsblz}]" [{if !$isChecked}]disabled[{/if}]/>
                 </fieldset>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label for="payment_[{$sPaymentID}]_3">
                         [{if $oView->isOldDebitValidationEnabled()}]
                         [{oxmultilang ident="BANK_ACCOUNT_NUMBER" suffix="COLON"}]
@@ -67,7 +67,7 @@
                     <input id="payment_[{$sPaymentID}]_3" required type="text" class="form-control" maxlenght="64" name="dynvalue[lsktonr]" autocomplete="off" value="[{$dynvalue.lsktonr}]" [{if !$isChecked}]disabled[{/if}]/>
                 </fieldset>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label for="payment_[{$sPaymentID}]_4">
                         [{oxmultilang ident="BANK_ACCOUNT_HOLDER" suffix="COLON"}]
                     </label>

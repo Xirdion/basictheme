@@ -14,11 +14,11 @@
             <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
         [{/if}]
     </div>
-    <fieldset class="form-group">
+    <fieldset class="form-group req">
         <label for="abs-email-input">[{oxmultilang ident="EMAIL" suffix="COLON"}]</label>
         <input type="email" required name="lgn_usr" class="form-control" id="abs-email-input" placeholder="your@mail.com">
     </fieldset>
-    <fieldset class="form-group">
+    <fieldset class="form-group req">
         <label for="abs-password-input">[{oxmultilang ident="PASSWORD" suffix="COLON"}]</label>
         <input type="password" required name="lgn_pwd" class="form-control" id="abs-password-input">
     </fieldset>

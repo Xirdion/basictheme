@@ -1,0 +1,7 @@
+.req {
+    label {
+        &:after {
+            content:'*';
+        }
+    }
+}

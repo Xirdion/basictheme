@@ -13,12 +13,12 @@
     <div class="row">
         <div class="col-lg-6 col-sm-8 col-xs-12">
             [{if $aErrors.oxuser__oxpassword}][{/if}]
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-forgotpwd-pw">[{oxmultilang ident="NEW_PASSWORD" suffix="COLON"}]</label>
                 <input required type="password" class="form-control" id="abs-forgotpwd-pw" name="password_new" />
             </fieldset>
             [{if $aErrors.oxuser__oxpassword}][{/if}]
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-forgotpwd-pw-confirm">[{oxmultilang ident="CONFIRM_PASSWORD" suffix="COLON"}]</label>
                 <input required type="password" class="form-control" id="abs-forgotpwd-pw-confirm" name="password_new_confirm" />
             </fieldset>

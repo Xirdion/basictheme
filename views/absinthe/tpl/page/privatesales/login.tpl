@@ -2,15 +2,16 @@
     [{oxid_include_widget cl="oxwCookieNote" _parent=$oView->getClassName() nocookie=1}]
 [{/capture}]
 [{capture append="oxidBlock_content"}]
-    <div class="accountLoginView">
+    <div class="abs-ps-login">
         <h1 id="loginAccount" class="h1">[{$oView->getTitle()}]</h1>
         [{if $oView->confirmTerms()}]
             [{include file="form/privatesales/accept_terms.tpl"}]
         [{else}]
-            [{include file="widget/header/languages.tpl"}]
+            [{*include file="widget/header/languages.tpl"*}]
             <p>[{oxmultilang ident="LOGIN_ALREADY_CUSTOMER"}]</p>
             [{include file="form/login_account.tpl"}]
         [{/if}]
     </div>
 [{/capture}]
-[{include file="layout/popup.tpl"}]
+[{*include file="layout/popup.tpl"*}]
+[{include file="layout/page.tpl"}]

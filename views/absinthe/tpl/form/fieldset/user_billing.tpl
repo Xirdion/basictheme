@@ -24,17 +24,17 @@
 <div class="row">
     <div class="col-lg-6 col-sm-8 col-xs-12">
         [{include file="form/fieldset/salutation.tpl" name="invadr[oxuser__oxsal]" value=$oxcmp_user->oxuser__oxsal->value value2=$invadr.oxuser__oxsal}]
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxfname)}]req[{/if}]">
             <label for="abs-user-oxfname">[{oxmultilang ident="FIRST_NAME" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxfname)}]required[{/if}] type="text" class="form-control" id="abs-user-oxfname" name="invadr[oxuser__oxfname]" placeholder="[{oxmultilang ident="FIRST_NAME"}]" value="[{if isset( $invadr.oxuser__oxfname )}][{$invadr.oxuser__oxfname}][{else}][{$oxcmp_user->oxuser__oxfname->value}][{/if}]" />
         </fieldset>
 
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxlname)}]req[{/if}]">
             <label for="abs-user-oxlname">[{oxmultilang ident="LAST_NAME" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxlname)}]required[{/if}] type="text" class="form-control" id="abs-user-oxlname" name="invadr[oxuser__oxlname]"  placeholder="[{oxmultilang ident="LAST_NAME"}]" value="[{if isset( $invadr.oxuser__oxlname )}][{$invadr.oxuser__oxlname}][{else}][{$oxcmp_user->oxuser__oxlname->value}][{/if}]" />
         </fieldset>
 
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxstreet) || $oView->isFieldRequired(oxuser__oxstreetnr)}]req[{/if}]">
             <label for="abs-user-oxstreet">[{oxmultilang ident="STREET_AND_STREETNO" suffix="COLON"}]</label>
             <div class="row">
                 <div class="col-xs-12 col-sm-8">
@@ -46,7 +46,7 @@
             </div>
         </fieldset>
 
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxzip) || $oView->isFieldRequired(oxuser__oxcity)}]req[{/if}]">
             <label for="abs-user-oxzip">[{oxmultilang ident="POSTAL_CODE_AND_CITY" suffix="COLON"}]</label>
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
@@ -59,7 +59,7 @@
         </fieldset>
 
         [{block name="form_user_billing_country"}]
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxcountryid)}]req[{/if}]">
                 <label for="abs-user-country">[{oxmultilang ident="COUNTRY" suffix="COLON"}]</label>
                 <select class="form-control" [{if $oView->isFieldRequired(oxuser__oxcountryid)}]required[{/if}] id="abs-user-country" name="invadr[oxuser__oxcountryid]">
                     [{assign var="blCountrySelected" value=false}]
@@ -82,7 +82,7 @@
 
     </div>
     <div class="col-lg-6 col-sm-8 col-xs-12">
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxcompany)}]req[{/if}]">
             <label for="abs-user-oxcompany">[{oxmultilang ident="COMPANY" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxcompany)}]required[{/if}] type="text" class="form-control" id="abs-user-oxcompany" name="invadr[oxuser__oxcompany]" placeholder="[{oxmultilang ident="COMPANY"}]" value="[{if isset( $invadr.oxuser__oxcompany )}][{$invadr.oxuser__oxcompany}][{else}][{$oxcmp_user->oxuser__oxcompany->value}][{/if}]" />
         </fieldset>
@@ -90,14 +90,14 @@
             <label for="abs-user-oxaddinfo">[{oxmultilang ident="ADDITIONAL_INFO" suffix='COLON'}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxaddinfo)}]required[{/if}] type="text" class="form-control" id="abs-user-oxaddinfo" name="invadr[oxuser__oxaddinfo]" value="[{if isset( $invadr.oxuser__oxaddinfo )}][{$invadr.oxuser__oxaddinfo}][{else}][{$oxcmp_user->oxuser__oxaddinfo->value}][{/if}]" />
         </fieldset>*}]
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxustid)}]req[{/if}]">
             <label for="abs-user-oxustid">[{oxmultilang ident="VAT_ID_NUMBER" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxustid)}]required[{/if}] type="text" class="form-control" id="abs-user-oxustid" name="invadr[oxuser__oxustid]" placeholder="[{oxmultilang ident="VAT_ID_NUMBER"}]" value="[{if isset( $invadr.oxuser__oxustid )}][{$invadr.oxuser__oxustid}][{else}][{$oxcmp_user->oxuser__oxustid->value}][{/if}]" />
         </fieldset>
         
         [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxustid}]
         
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxfon)}]req[{/if}]">
             <label for="abs-user-oxfon">[{oxmultilang ident="PHONE" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxfon)}]required[{/if}] type="text" class="form-control" id="abs-user-oxfon" name="invadr[oxuser__oxfon]" placeholder="[{oxmultilang ident="PHONE"}]" value="[{if isset( $invadr.oxuser__oxfon )}][{$invadr.oxuser__oxfon}][{else}][{$oxcmp_user->oxuser__oxfon->value}][{/if}]" />
         </fieldset>
@@ -105,7 +105,7 @@
             <label for="abs-user-oxfax">[{oxmultilang ident="FAX" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxfax)}]required[{/if}] type="text" class="form-control" id="abs-user-oxfax" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax )}][{$invadr.oxuser__oxfax}][{else}][{$oxcmp_user->oxuser__oxfax->value}][{/if}]" />
         </fieldset>*}]
-        <fieldset class="form-group">
+        <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxmobfon)}]req[{/if}]">
             <label for="abs-user-oxmobfon">[{oxmultilang ident="CELLUAR_PHONE" suffix="COLON"}]</label>
             <input [{if $oView->isFieldRequired(oxuser__oxmobfon)}]required[{/if}] type="text" class="form-control" id="abs-user-oxmobfon" name="invadr[oxuser__oxmobfon]" placeholder="[{oxmultilang ident="CELLUAR_PHONE"}]" value="[{if isset( $invadr.oxuser__oxmobfon )}][{$invadr.oxuser__oxfax}][{else}][{$oxcmp_user->oxuser__oxmobfon->value}][{/if}]" />
         </fieldset>
@@ -114,7 +114,7 @@
             <input [{if $oView->isFieldRequired(oxuser__oxprivfon)}]required[{/if}] type="text" class="form-control" id="abs-user-oxprivfon" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon )}][{$invadr.oxuser__oxprivfon}][{else}][{$oxcmp_user->oxuser__oxprivfon->value}][{/if}]" />
         </fieldset>*}]
         [{if $oViewConf->showBirthdayFields()}]
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxuser__oxbirthdate)}]req[{/if}]">
                 <label for="abs-user-birthday">[{oxmultilang ident="BIRTHDATE" suffix="COLON"}]</label>
                 <div class="input-group absjs-choose-date">
                     <input id="abs-user-birthday" [{if $oView->isFieldRequired(oxuser__oxbirthdate)}]required[{/if}] type="text" class="form-control" placeholder="[{oxmultilang ident="BIRTHDATE"}]" value="[{if $iBirthdayDay > 0 }][{$iBirthdayDay}].[{/if}][{if $iBirthdayMonth > 0 }][{$iBirthdayMonth}].[{/if}][{if $iBirthdayYear > 0 }][{$iBirthdayYear}].[{/if}]">

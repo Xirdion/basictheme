@@ -62,7 +62,7 @@
                                         <input type="hidden" name="fnc" value="addVoucher">
                                     </div>
                                     <div>
-                                        <div id="abs-voucher-input" class="input-group">
+                                        <div id="abs-voucher-input" class="input-group req">
                                             <span class="input-group-addon" id="abs-voucher-label">[{oxmultilang ident="ENTER_COUPON_NUMBER" suffix="COLON"}]</span>
                                             <input required type="text" class="form-control" name="voucherNr" aria-describedby="abs-voucher-label">
                                             <span class="input-group-btn">

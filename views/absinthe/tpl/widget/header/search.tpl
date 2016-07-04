@@ -7,7 +7,7 @@
     [{if $currency->id}]
     <input type="hidden" name="cur" value="[{$currency->id}]">
     [{/if}]
-    <div class="input-group">
+    <div class="input-group req">
         [{block name="header_search_field"}]
         <input type="text" required class="form-control" placeholder="[{oxmultilang ident="SEARCH" }]"  name="searchparam" value="[{$oView->getSearchParamForHtml()}]">
         [{/block}]

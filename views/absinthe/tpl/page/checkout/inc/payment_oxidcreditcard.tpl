@@ -48,14 +48,14 @@
                     <option value="enr" [{if $dynvalue.kktype == "enr"}]selected[{/if}]>EnRoute</option>*}]
                 </select>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label>
                         [{oxmultilang ident="NUMBER" suffix="COLON"}]
                     </label>
                     <input required class="form-control" type="text" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" [{if !$isChecked}]disabled[{/if}]/>
                 </fieldset>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label>
                         [{oxmultilang ident="BANK_ACCOUNT_HOLDER" suffix="COLON"}]
                     </label>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label>
                         [{oxmultilang ident="CARD_SECURITY_CODE" suffix="COLON"}]
                     </label>

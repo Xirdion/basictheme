@@ -5,4 +5,3 @@
     </div>
 [{/capture}]
 [{include file="layout/page.tpl" sidebar="Left"}]
-

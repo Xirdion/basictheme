@@ -16,15 +16,15 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-sm-8 col-xs-12">
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-pricealarm-price">[{oxmultilang ident="YOUR_PRICE"}] ([{$currency->sign}]):</label>
                 <input required type="text" class="form-control" id="abs-pricealarm-price" name="pa[price]" value="[{oxhasrights ident="SHOWARTICLEPRICE"}][{if $product}][{$product->getFPrice()}][{/if}][{/oxhasrights}]" />
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-pricealarm-email">[{oxmultilang ident="EMAIL" suffix="COLON"}]</label>
                 <input required type="email" class="form-control" id="abs-pricealarm-email" name="pa[email]" placeholder="your@mail.com" value="[{if $oxcmp_user}][{$oxcmp_user->oxuser__oxusername->value}][{/if}]" />
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group req">
                 <label for="abs-pricealarm-captcha">[{oxmultilang ident="VERIFICATION_CODE" suffix="COLON"}]</label>
                 [{if $oCaptcha->isImageVisible()}]
                     <img src="[{$oCaptcha->getImageUrl()}]" alt="[{oxmultilang ident="VERIFICATION_CODE"}]">

@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-8 col-xs-12">
                         [{foreach from=$aDynValues item=value name=PaymentDynValues}]
-                            <fieldset class="form-group">
+                            <fieldset class="form-group req">
                                 <label for="[{$sPaymentID}]_[{$smarty.foreach.PaymentDynValues.iteration}]">[{$value->name}]</label>
                                 <input required type="text" class="form-control" id="[{$sPaymentID}]_[{$smarty.foreach.PaymentDynValues.iteration}]" name="dynvalue[[{$value->name}]]" value="[{$value->value}]" [{if !$isChecked}]disabled[{/if}]/>
                             </fieldset>

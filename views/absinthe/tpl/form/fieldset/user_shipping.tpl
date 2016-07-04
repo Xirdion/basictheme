@@ -25,12 +25,12 @@
         <div class="col-lg-6 col-sm-8 col-xs-12">
             [{include file="form/fieldset/salutation.tpl" name="deladr[oxaddress__oxsal]" value=$delivadr->oxaddress__oxsal->value value2=$deladr.oxaddress__oxsal}]
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxfname)}]req[{/if}]">
                 <label for="abs-del-oxfname">[{oxmultilang ident="FIRST_NAME" suffix="COLON"}]</label>
                 <input [{if $oView->isFieldRequired(oxaddress__oxfname)}]required [{if !$oView->showShipAddress()}]disabled[{/if}][{/if}] type="text" class="form-control" id="abs-del-oxfname" name="deladr[oxaddress__oxfname]" placeholder="[{oxmultilang ident="FIRST_NAME"}]" value="[{if isset( $deladr.oxaddress__oxfname )}][{$deladr.oxaddress__oxfname}][{else}][{$delivadr->oxaddress__oxfname->value}][{/if}]" />
             </fieldset>
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxlname)}]req[{/if}]">
                 <label for="abs-del-oxlname">[{oxmultilang ident="LAST_NAME" suffix="COLON"}]</label>
                 <input [{if $oView->isFieldRequired(oxaddress__oxlname)}]required [{if !$oView->showShipAddress()}]disabled[{/if}][{/if}] type="text" class="form-control" id="abs-del-oxlname" name="deladr[oxaddress__oxlname]" placeholder="[{oxmultilang ident="LAST_NAME"}]"  value="[{if isset( $deladr.oxaddress__oxlname )}][{$deladr.oxaddress__oxlname}][{else}][{$delivadr->oxaddress__oxlname->value}][{/if}]" />
             </fieldset>
@@ -40,7 +40,7 @@
             <input [{if $delivadr}]disabled[{/if}] [{if $oView->isFieldRequired(oxaddress__oxaddinfo)}]required[{/if}] type="text" class="form-control" id="abs-del-oxaddinfo" name="deladr[oxaddress__oxaddinfo]" value="[{if isset( $deladr.oxaddress__oxaddinfo )}][{$deladr.oxaddress__oxaddinfo}][{else}][{$delivadr->oxaddress__oxaddinfo->value}][{/if}]" />
             </fieldset>*}]
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxstreet) || $oView->isFieldRequired(oxaddress__oxstreetnr)}]req[{/if}]">
                 <label for="abs-del-oxstreet">[{oxmultilang ident="STREET_AND_STREETNO" suffix="COLON"}]</label>
                 <div class="row">
                     <div class="col-xs-12 col-sm-8">
@@ -52,7 +52,7 @@
                 </div>
             </fieldset>
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxzip) || $oView->isFieldRequired(oxaddress__oxcity)}]req[{/if}]">
                 <label for="abs-del-oxzip">[{oxmultilang ident="POSTAL_CODE_AND_CITY" suffix="COLON"}]</label>
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
@@ -65,7 +65,7 @@
             </fieldset>
 
             [{block name="form_user_shipping_country"}]
-                <fieldset class="form-group">
+                <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxcountryid)}]req[{/if}]">
                     <label for="abs-del-country">[{oxmultilang ident="COUNTRY" suffix="COLON"}]</label>
                     <select class="form-control" [{if $oView->isFieldRequired(oxaddress__oxcountryid)}]required [{if !$oView->showShipAddress()}]disabled[{/if}][{/if}] id="abs-del-country" name="deladr[oxaddress__oxcountryid]">
                         [{assign var="blCountrySelected" value=false}]
@@ -88,12 +88,12 @@
         </div>
         <div class="col-lg-6 col-sm-8 col-xs-12">
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxcompany)}]req[{/if}]">
                 <label for="abs-del-oxcompany">[{oxmultilang ident="COMPANY" suffix="COLON"}]</label>
                 <input [{if $oView->isFieldRequired(oxaddress__oxcompany)}]required [{if !$oView->showShipAddress()}]disabled[{/if}][{/if}] type="text" class="form-control" id="abs-del-oxcompany" name="deladr[oxaddress__oxcompany]" placeholder="[{oxmultilang ident="COMPANY"}]" value="[{if isset( $deladr.oxaddress__oxcompany )}][{$deladr.oxaddress__oxcompany}][{else}][{$delivadr->oxaddress__oxcompany->value}][{/if}]" />
             </fieldset>
 
-            <fieldset class="form-group">
+            <fieldset class="form-group [{if $oView->isFieldRequired(oxaddress__oxfon)}]req[{/if}]">
                 <label for="abs-del-oxfon">[{oxmultilang ident="PHONE" suffix="COLON"}]</label>
                 <input [{if $oView->isFieldRequired(oxaddress__oxfon)}]required [{if !$oView->showShipAddress()}]disabled[{/if}][{/if}] type="text" class="form-control" id="abs-del-oxfon" name="deladr[oxaddress__oxfon]" placeholder="[{oxmultilang ident="PHONE"}]" value="[{if isset( $deladr.oxaddress__oxfon )}][{$deladr.oxaddress__oxfon}][{else}][{$delivadr->oxaddress__oxfon->value}][{/if}]" />
             </fieldset>

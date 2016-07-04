@@ -5,4 +5,5 @@
     <h1 class="h1">[{$oView->getTitle()}]</h1>
     [{$oView->getParsedContent()}]
 [{/capture}]
-[{include file="layout/popup.tpl"}]
+[{*include file="layout/popup.tpl"*}]
+[{include file="layout/page.tpl"}]

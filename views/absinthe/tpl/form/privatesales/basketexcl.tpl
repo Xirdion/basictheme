@@ -1,7 +1,7 @@
 <h3 class="h3">[{oxmultilang ident="ROOT_CATEGORY_CHANGED"}]</h3>
 [{oxmultilang ident="MESSAGE_DENIED_BY_SHOP_RULES"}]<br><br>
 <div class="introtext">
-[{oxmultilang ident="MESSAGE_BASKET_EXCLUDE_INFO"}]<br><br>
+    [{oxmultilang ident="MESSAGE_BASKET_EXCLUDE_INFO"}]<br><br>
 </div>
 <form action="[{$oViewConf->getCurrentHomeDir()}]index.php" method="post">
     <div>

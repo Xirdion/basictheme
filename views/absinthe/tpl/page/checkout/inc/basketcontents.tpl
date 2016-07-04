@@ -156,7 +156,7 @@
                                             [{/if}]
 
                                             [{if !$basketitem->isBundle() || !$basketitem->isDiscountArticle()}]   
-                                                <div class="abs-quantity-input abs-basketitem-buttons input-group">
+                                                <div class="abs-quantity-input abs-basketitem-buttons input-group req">
                                                     <input required="" type="number" min="1" class="form-control" name="aproducts[[{$basketindex}]][am]" value="[{$basketitem->getAmount()}]">
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-secondary" type="submit"><i class="fa fa-refresh fa-rotate-90"></i></button>

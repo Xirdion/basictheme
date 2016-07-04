@@ -1,7 +1,5 @@
 <div>
-    [{oxscript include="js/widgets/oxinputvalidator.js" priority=10}]
-    [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
-    <form name="login" class="js-oxValidate" action="[{$oViewConf->getSslSelfLink()}]" method="post">
+    <form name="login" action="[{$oViewConf->getSslSelfLink()}]" method="post">
         <div>
             [{$oViewConf->getHiddenSid()}]
             [{$oViewConf->getNavFormParams()}]
@@ -20,9 +18,9 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-sm-8 col-xs-12">
-                <fieldset class="form-group">
+                <fieldset class="form-group req">
                     <label class="c-input c-checkbox" for="abs-account-agb">
-                        <input id="abs-account-agb" type="checkbox" name="ord_agb" value="1">
+                        <input id="abs-account-agb" type="checkbox" name="ord_agb" value="1" required>
                         <span class="c-indicator"></span>
                         [{oxifcontent ident="oxrighttocancellegend" object="oContent"}]
                             [{$oContent->oxcontents__oxcontent->value}]
