@@ -12,7 +12,6 @@
  * TODO: store breakpoints somewhere global
  * 
  */
-
 $(document).ready(function () {
     var page = $('#abs-page');
     
