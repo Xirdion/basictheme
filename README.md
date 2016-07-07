@@ -27,16 +27,18 @@ global:
 
 Überprüfen, ob nodejs installiert ist:
 ```bash
-node -v
+$ node -v
 ```
 falls nodejs noch nicht installiert ist:
-sudo apt-get install -y nodejs
-
+```bash
+$ sudo apt-get install -y nodejs
+```
 nodejs auf die neueste stable version upgraden
-sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable
-
+```
+$ sudo npm cache clean -f
+$ sudo npm install -g n
+$ sudo n stable
+```
 überprüfen wo nodejs installiert wurde
 which node
 normalerweise /usr(/local)/bin/node
