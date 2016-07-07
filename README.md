@@ -1,23 +1,55 @@
 # basictheme
 
-module nötig für:
-- anzeigen, dass der Artikel bereits auf dem Wunschzettel ist (anpassen von oxwarticledetails.php)
-  public function isArticleInWishlist() {
-      if ($oUser = $this->getUser()) {
-          $oProduct = $this->getProduct();
-          $aArticles = $oUser->getBasket("wishlist")->getArticles();
-          foreach ($aArticles as $oArticle) {
-              if ($oArticle->oxarticles__oxid->value === $oProduct->oxarticles__oxid->value) {
-                  return true;
-              }
-          }
-      }
-      return false;
-  }
+### Module, die zur Verwendung des themes notwendig sind
+* Artikel-Detail-Seite
+** Anzeigen, dass der Artikel sich bereits auf dem Wunschzettel befindet (neue Funktion in oxwarticledetails.php)
+```php
+public function isArticleInWishlist() {
+	if ($oUser = $this->getUser()) {
+		$oProduct = $this->getProduct();
+		$aArticles = $oUser->getBasket("wishlist")->getArticles();
+		foreach ($aArticles as $oArticle) {
+			if ($oArticle->oxarticles__oxid->value === $oProduct->oxarticles__oxid->value) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+```
 
-- ändern der Adressen mit account-controller (anpassen vom account-controllern mit function aus account-user (showShipAddress())
-- abändern von oxcmp_user (changeuser_testvalues()) damit 'account' returnd wird und nicht 'account_user'
+** Funktion zum Anzeigen der Lieferadresse über den account-controller (showShipAddress() aus account-user.php)
+```php
+/**
+ * Template variable getter. Checks to show or not shipping address entry form
+ *
+ * @return bool
+ */
+public function showShipAddress()
+{
+	return oxRegistry::getSession()->getVariable('blshowshipaddress');
+}
+```
 
+** Abändern des return controllers changeuser_testvalues() in oxcpm_user
+```php
+/**
+ * Executes oxcmp_user::_changeuser_noredirect().
+ * returns "account_user" (this redirects to billing and shipping settings page) on success
+ *
+ * @return null
+ */
+public function changeuser_testvalues()
+{
+	// skip updating user info if this is just form reload
+	// on selecting delivery address
+	// We do redirect only on success not to loose errors.
+
+	if ($this->_changeUser_noRedirect()) {
+		return 'account';
+	}
+}
+```
 
 
 ## Installation und Verwendung von gulp
