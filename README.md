@@ -117,7 +117,8 @@ $ npm install gulp -g --save-dev
 ```
 (gulp muss sowohl lokal als auch global installiert werden)
 
-* Wechsel zum project-root verzeichnis:
+### Wechsel zum project-root verzeichnis:
+
 ###### Installation von gulp lokal
 ```shell
 $ npm install gulp --save-dev
@@ -159,18 +160,18 @@ $ npm install gulp-uglify --save-dev
 
 ###### Erstellen der package.json:
 ```shell
-npm init
+$ npm init
 ```
 ```json
 {
 	"name": "demo",
-	"version": 1.0.0,
+	"version": "1.0.0",
 	"description": "Demo package.json",
 	"main": "main.js",
 	"dependencies": {},
 	"devDependencies": {},
 	"scripts": {},
-	"author": "Author"
+	"author": "Author",
 	"license": "ISC"
 }
 ```
