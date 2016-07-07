@@ -1,8 +1,9 @@
 # basictheme
 
 ### Module, die zur Verwendung des themes notwendig sind
-* Artikel-Detail-Seite
-** Anzeigen, dass der Artikel sich bereits auf dem Wunschzettel befindet (neue Funktion in oxwarticledetails.php)
+
+####Artikel-Detail-Seite
+* Anzeigen, dass der Artikel sich bereits auf dem Wunschzettel befindet (neue Funktion in oxwarticledetails.php)
 ```php
 public function isArticleInWishlist() {
 	if ($oUser = $this->getUser()) {
@@ -18,7 +19,7 @@ public function isArticleInWishlist() {
 }
 ```
 
-** Funktion zum Anzeigen der Lieferadresse über den account-controller (showShipAddress() aus account-user.php)
+* Funktion zum Anzeigen der Lieferadresse über den account-controller (showShipAddress() aus account-user.php)
 ```php
 /**
  * Template variable getter. Checks to show or not shipping address entry form
@@ -31,7 +32,7 @@ public function showShipAddress()
 }
 ```
 
-** Abändern des return controllers changeuser_testvalues() in oxcpm_user
+* Abändern des return controllers changeuser_testvalues() in oxcpm_user
 ```php
 /**
  * Executes oxcmp_user::_changeuser_noredirect().
