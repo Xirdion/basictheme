@@ -92,7 +92,7 @@ npm init
 schreiben der gulpfile.js
 
 Beispiel:
-
+.. code-block:: javascript
 // include gulp
 var gulp = require('gulp');
 
