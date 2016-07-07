@@ -26,15 +26,15 @@ einmalig
 global:
 
 Überprüfen, ob nodejs installiert ist:
-```bash
+```console
 $ node -v
 ```
 falls nodejs noch nicht installiert ist:
-```bash
+```console
 $ sudo apt-get install -y nodejs
 ```
 nodejs auf die neueste stable version upgraden
-```
+```console
 $ sudo npm cache clean -f
 $ sudo npm install -g n
 $ sudo n stable
@@ -95,7 +95,7 @@ npm init
 schreiben der gulpfile.js
 
 Beispiel:
-```javscript
+```javascript
 // include gulp
 var gulp = require('gulp');
 
