@@ -41,7 +41,7 @@ $ sudo n stable
 ```
 überprüfen wo nodejs installiert wurde
 ```shell
-which node
+$ which node
 ```
 normalerweise /usr(/local)/bin/node
 
@@ -49,19 +49,19 @@ globale node module (packages) werden normalerweise unter /usr(/local)/lib/node_
 
 Abändern des Speicherorts für globale packages
 ```shell
-npm config list
-npm config get prefix => /usr/local
+$ npm config list
+$ npm config get prefix => /usr/local
 ```
 
 Erstellen eines node_modules Ordners im home-verzeichnis:
 ```shell
-cd && mkdir .node_modules_global
-npm config set prefix=$HOME/.node_modules_global
+$ cd && mkdir .node_modules_global
+$ npm config set prefix=$HOME/.node_modules_global
 ```
 
 npm nocheinmal im home-verzeichnis installieren:
 ```shell
-npm install npm --global
+$ npm install npm --global
 ```
 
 Aufnahme der Änderung in der .profile oder .bash_profile Datei:
@@ -71,22 +71,22 @@ export PATH="$HOME/.node_modules_global/bin:$PATH"
 Terminal neu starten.
 
 ```shell
-$which npm
+$ which npm
 ```
 zeigt nun auf den neuen Ordner
 
 Globale npm-packages installieren
 ```shell
-npm install gulp -g --save-dev
+$ npm install gulp -g --save-dev
 ```
 (gulp muss sowohl lokal als auch global installiert werden)
 
 Wechsel zum project-root verzeichnis:
 ```shell
-npm install gulp --save-dev
+$ npm install gulp --save-dev
 ```
 ```shell
-npm install pump --save-dev
+$ npm install pump --save-dev
 ```
 (erweiterung für gulp für Fehlerhandling)
 
