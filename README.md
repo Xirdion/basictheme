@@ -26,8 +26,9 @@ einmalig
 global:
 
 Überprüfen, ob nodejs installiert ist:
+```bash
 node -v
-
+```
 falls nodejs noch nicht installiert ist:
 sudo apt-get install -y nodejs
 
