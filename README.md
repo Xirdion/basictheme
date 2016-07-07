@@ -22,23 +22,25 @@ module nötig für:
 
 ## Installation und Verwendung von gulp
 
-## globale Einstellungen
+### globale Einstellungen
 
-Überprüfen, ob nodejs installiert ist:
+* Überprüfen, ob nodejs installiert ist:
 ```shell
 $ node -v
 ```
-falls nodejs noch nicht installiert ist:
+
+* falls nodejs noch nicht installiert ist:
 ```shell
 $ sudo apt-get install -y nodejs
 ```
-nodejs auf die neueste stable version upgraden
+
+* nodejs auf die neueste stable version upgraden
 ```shell
 $ sudo npm cache clean -f
 $ sudo npm install -g n
 $ sudo n stable
 ```
-überprüfen wo nodejs installiert wurde
+* überprüfen wo nodejs installiert wurde
 ```shell
 $ which node
 ```
@@ -46,41 +48,43 @@ normalerweise /usr(/local)/bin/node
 
 globale node module (packages) werden normalerweise unter /usr(/local)/lib/node_modules installiert (owner: root: man muss jedesmal sudo zum installieren verwenden)
 
-Abändern des Speicherorts für globale packages
+* Abändern des Speicherorts für globale packages
 ```shell
 $ npm config list
 $ npm config get prefix => /usr/local
 ```
 
-Erstellen eines node_modules Ordners im home-verzeichnis:
+* Erstellen eines node_modules Ordners im home-verzeichnis:
 ```shell
 $ cd && mkdir .node_modules_global
 $ npm config set prefix=$HOME/.node_modules_global
 ```
 
-npm nocheinmal im home-verzeichnis installieren:
+* npm nocheinmal im home-verzeichnis installieren:
 ```shell
 $ npm install npm --global
 ```
 
-Aufnahme der Änderung in der .profile oder .bash_profile Datei:
+* Aufnahme der Änderung in der .profile oder .bash_profile Datei:
 ```shell
 export PATH="$HOME/.node_modules_global/bin:$PATH"
 ```
-Terminal neu starten.
+
+* Terminal neu starten.
+
 
 ```shell
 $ which npm
 ```
 zeigt nun auf den neuen Ordner
 
-Globale npm-packages installieren
+##### Globale npm-packages installieren
 ```shell
 $ npm install gulp -g --save-dev
 ```
 (gulp muss sowohl lokal als auch global installiert werden)
 
-Wechsel zum project-root verzeichnis:
+* Wechsel zum project-root verzeichnis:
 ###### Installation von gulp lokal
 ```shell
 $ npm install gulp --save-dev
