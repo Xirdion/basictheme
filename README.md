@@ -20,10 +20,9 @@ module nötig für:
 
 
 
+## Installation und Verwendung von gulp
 
-
-einmalig
-global:
+## globale Einstellungen
 
 Überprüfen, ob nodejs installiert ist:
 ```shell
@@ -82,25 +81,50 @@ $ npm install gulp -g --save-dev
 (gulp muss sowohl lokal als auch global installiert werden)
 
 Wechsel zum project-root verzeichnis:
+###### Installation von gulp lokal
 ```shell
 $ npm install gulp --save-dev
 ```
+
+###### Installation von pump
 ```shell
 $ npm install pump --save-dev
 ```
-(erweiterung für gulp für Fehlerhandling)
+Pump ist eine Erweiterung für gulp und dient zur besseren Fehlerbehandlung
 
-gulp-plugins installieren
-npm install gulp-sass --save-dev (umwandlung von scss in css)
-npm install --save-dev gulp-autoprefixer (hinzufügen von vendor prefixes (http://caniuse.com))
-npm install gulp-sourcemaps --save-dev (erstellen einer sourcemap für browser-debugging)
-npm install gulp-concat --save-dev (zusammenfügen mehrerer Dateien in eine)
-npm install gulp-uglify --save-dev (minfy eine js-Datei)
+###### gulp plug-ins installieren
+* gulp-sass (umwandlung von scss in css)
+```shell
+$ npm install gulp-sass --save-dev
+```
 
-erstellen einer gulpfile.js
+* gulp-autoprefixer (hinzufügen von vendor prefixes (holt sich die info von [caniuse](http://caniuse.com)))
+```shell
+$ npm install --save-dev gulp-autoprefixer 
+```
 
-erstellen der package.json:
+* gulp-sourcemaps (erstellen einer sourcemap für browser-debugging)
+```shell
+$ npm install gulp-sourcemaps --save-dev
+```
+
+* gulp-concat (zusammenfügen mehrerer Dateien in eine)
+```shell
+$ npm install gulp-concat --save-dev
+```
+
+* gulp-uglify (minfy js-Dateien)
+```shell
+$ npm install gulp-uglify --save-dev 
+```
+
+##### Erstellen einer gulpfile.js
+
+###### Erstellen der package.json:
+```shell
 npm init
+```
+```json
 {
 	"name": "demo",
 	"version": 1.0.0,
@@ -112,10 +136,10 @@ npm init
 	"author": "Author"
 	"license": "ISC"
 }
+```
 
-schreiben der gulpfile.js
+######schreiben der gulpfile.js
 
-Beispiel:
 ```javascript
 // include gulp
 var gulp = require('gulp');
