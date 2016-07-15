@@ -1,8 +1,8 @@
-# basictheme
+# aplido-basictheme
 
-### Module, die zur Verwendung des themes notwendig sind
+## Modul, welches zur Nutzung des basicthemes vorhanden sein muss
 
-####Artikel-Detail-Seite
+### oxwarticledetails
 * Anzeigen, dass der Artikel sich bereits auf dem Wunschzettel befindet (neue Funktion in oxwarticledetails.php)
 ```php
 public function isArticleInWishlist() {
@@ -19,6 +19,7 @@ public function isArticleInWishlist() {
 }
 ```
 
+### account
 * Funktion zum Anzeigen der Lieferadresse über den account-controller (showShipAddress() aus account-user.php)
 ```php
 /**
@@ -32,6 +33,7 @@ public function showShipAddress()
 }
 ```
 
+### oxcmp_user
 * Abändern des return controllers changeuser_testvalues() in oxcpm_user
 ```php
 /**
@@ -49,6 +51,18 @@ public function changeuser_testvalues()
 	if ($this->_changeUser_noRedirect()) {
 		return 'account';
 	}
+}
+```
+
+### oxwcategorytree
+* Einfügen einer Überprüfung in die render()-function, ob der mobile Kategoriebaum oder der normale angezeigt werden soll
+```php
+/**
+ * 
+ * @return string
+ */
+public function isMobile() {
+    return $this->_bIsMobile;
 }
 ```
 
